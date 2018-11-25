@@ -1,0 +1,21 @@
+{
+ "template": "subway_info*",
+ "settings": {
+   "number_of_shards": 1
+ },
+ "mappings": {
+   "station": {
+     "properties": {
+       "location": {
+         "type": "geo_point"
+       },
+       "entry": {
+         "type": "keyword"
+       },
+       "exit_only": {
+         "type": "keyword"
+       }
+     }
+   }
+ }
+}

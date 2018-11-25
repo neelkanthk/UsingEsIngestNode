@@ -1,0 +1,31 @@
+{
+ "pipeline": {
+   "description": "Parsing the NYC stations",
+   "processors": [
+     {
+       "grok": {
+         "field": "station",
+         "patterns": [
+           "%{WORD:division},%{DATA:line},%{DATA:station_name},%{NUMBER:location.lat},%{NUMBER:location.lon},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA},%{DATA:entrance_type},%{DATA:entry},%{DATA:exit_only},%{DATA:vending}"
+         ]
+       }
+     },
+     {
+       "remove": {
+         "field": "station"
+       }
+     }
+   ]
+ },
+ "docs": [
+   {
+     "_index": "subway_info",
+     "_type": "station",
+     "_id": "AVvJZVQEBr2flFKzrrkr",
+     "_score": 1,
+     "_source": {
+       "station": "BMT,4 Avenue,53rd St,40.645069,-74.014034,R,,,,,,,,,,,Stair,NO,Yes,NO,NONE,,FALSE,,TRUE,4th Ave,52nd St,NW,40.645619,-74.013688,'(40.645069, -74.014034)','(40.645619, -74.013688)'"
+     }
+   }
+ ]
+}
